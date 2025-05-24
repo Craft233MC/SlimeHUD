@@ -37,7 +37,11 @@ public class WAILAManager implements Listener {
         return instance;
     }
 
-    private void generateWAILA(@Nonnull Player player) {
+    private void generateWAILA(Player player) {
+        if (player == null){
+            return;
+        }
+        
         PlayerWAILA waila;
         if (!wailas.containsKey(player.getUniqueId())) {
             waila = new PlayerWAILA(player);
