@@ -71,7 +71,7 @@ public class WAILAManager implements Listener {
     }
 
     @EventHandler
-    public void onPlayerJoin(@Nonnull PlayerJoinEvent e) {
+    public void onPlayerJoin(PlayerJoinEvent e) {
         Player player = e.getPlayer();
         if (!SlimeHUD.getInstance().getConfig().getBoolean("waila.disabled", false) &&
                 !SlimeHUD.getInstance().getConfig().getList("waila.disabled-in", Collections.EMPTY_LIST)
@@ -81,12 +81,12 @@ public class WAILAManager implements Listener {
     }
 
     @EventHandler
-    public void onPlayerQuit(@Nonnull PlayerQuitEvent e) {
+    public void onPlayerQuit(PlayerQuitEvent e) {
         removeWAILA(e.getPlayer());
     }
 
     @EventHandler
-    public void onPlayerChangeWorld(@Nonnull PlayerChangedWorldEvent e) {
+    public void onPlayerChangeWorld(PlayerChangedWorldEvent e) {
         Player player = e.getPlayer();
         if (SlimeHUD.getInstance().getConfig().getList("waila.disabled-in", Collections.EMPTY_LIST)
                 .contains(player.getWorld().getName())) {
